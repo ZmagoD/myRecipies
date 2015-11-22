@@ -13,7 +13,13 @@ Rails.application.routes.draw do
   # get '/recipes/:id', to: 'recies#show', as: 'recipe'
   # delete '/recies/:id', to: 'recies#destroy'
   
-  resources :recipes
+  resources :recipes do
+    member do
+      post 'like'
+    end
+  end
+  
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
