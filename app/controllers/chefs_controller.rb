@@ -43,7 +43,7 @@ class ChefsController < ApplicationController
     end
     
     def set_chef
-        @chef = Chef.find_by(params[:id]) 
+        @chef = Chef.find_by_id(params[:id]) 
     end
     def require_same_user
        if current_user != @chef
