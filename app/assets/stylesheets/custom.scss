@@ -93,6 +93,10 @@ input, textarea, select, .uneditable-input {
 input{
     height: auto !important;
 }
+
+.input_checkbox input{
+    width: auto !important;
+}
 span.picture{
     margin-top:10px;
     input{
