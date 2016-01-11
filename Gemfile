@@ -38,6 +38,7 @@ group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
   gem 'pry'
+  gem 'faker'
 end
 
 group :development do
