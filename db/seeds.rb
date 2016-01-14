@@ -12,11 +12,16 @@ Recipe.destroy_all
     Chef.create!(
          name: Faker::Name.name ,
          email: Faker::Internet.email,
-         password: Faker::Internet.password(8)
+         password: "asdf1234"
          )
 }
 
-
+Chef.create!(
+     name: "admin" ,
+     email: "admin@admin.com",
+     password: "asdf1234",
+     admin: true
+     )
 Chef.all.each do |c|
    3.times {Recipe.create!(
                   name: Faker::Commerce.product_name,

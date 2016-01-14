@@ -24,8 +24,9 @@ $navbar-default-color: $light-orange;
 }
 
 body {
-    padding-top: 80px;
+    padding-top: 90px;
     background: url('/assets/background.jpg');
+    font-family: 'Lato', sans-serif;
 }
 
 .nav_item {
@@ -48,18 +49,21 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 3.5em;
     letter-spacing: -2px;
     margin-bottom: 30px;
+    font-weight:bold;
     text-align: center;
+    font-family: 'Lora', serif;
 }
 
 h2 {
     font-size: 1.2em;
     margin-bottom: 30px;
     text-align: center;
-    font-weight: normal;
+    font-weight: bold;
     color: #777;
+    font-family: 'Lora', serif;
 }
 
 .left{
@@ -77,11 +81,7 @@ h2 {
     
 }
 .gravatar{
-    border-radius: 10px;
-}
-
-.well{
-    background-color: #EDEDED;
+    box-shadow: 3px 3px 1px #111;
 }
 
 input, textarea, select, .uneditable-input {
@@ -108,3 +108,36 @@ span.picture{
 .show_recipe{
     margin: 10px;
 }
+.well{
+   
+}
+.jumbotron, .well, .container .jumbotron, .container-fluid .jumbotron{
+    background-color: rgba(255,255,255,0.6);
+    border-radius:0px;
+}
+.navbar-default .navbar-nav > li > a{
+    margin-top:10px;
+    color: #fff !important;
+}
+.recipe_author{
+    font-size:20px;
+    color: #fff;
+}
+.recipe_author span{
+    text-transform:uppercase;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span,
+.pagination > li:last-child > a,
+.pagination > li:last-child > span{
+    border-radius:0px;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li > a{
+    border-radius:0px;
+    font-weight:bold;
+}
+    

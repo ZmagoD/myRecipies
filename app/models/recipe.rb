@@ -12,6 +12,7 @@ class Recipe < ActiveRecord::Base
     mount_uploader :picture, PictureUploader
     validate :picture_size
     default_scope -> { order(updated_at: :desc) }
+    scope :last_recipes, -> { order(updated_at: :desc).limit(3) }
     
     def thumbs_up_total
        self.likes.where(like: true).size 
@@ -20,8 +21,7 @@ class Recipe < ActiveRecord::Base
     def thumbs_down_total
         self.likes.where(like: false).size 
     end
-    
-    
+
     private
         def picture_size
             if picture.size > 5.megabytes
