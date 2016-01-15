@@ -15,5 +15,7 @@
 /log/*
 !/log/.keep
 /tmp
-
+/spring/*
+/spring
+/spring/
 .c9/
