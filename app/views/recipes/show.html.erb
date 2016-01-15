@@ -1,4 +1,5 @@
 <%= render "shared/page_title", title: @recipe.name %>
+<h5><%= link_to "Nazaj", recipes_path, class: "btn btn-warning btn-small" %></h5>
 <div class="row">
     <div class="col-md-4 pull-right center">
         <div class="show_recipe">
@@ -46,4 +47,9 @@
     </div>
 </div>
 
-<h5><%= link_to "Return to Recipes listing", recipes_path, class: "btn btn-warning btn-small" %></h5>
+
+<h5><%= link_to "Komentiraj recept", new_recipe_comment_path( @recipe ) , class: "btn btn-warning btn-small" %></h5>
+
+
+<%= render 'comments' %>
+

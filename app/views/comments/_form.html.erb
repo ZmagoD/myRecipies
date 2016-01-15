@@ -1,0 +1,13 @@
+<%= render "shared/errors", obj: @comment %>
+<div class="row">
+    <div class="well col-md-8 col-md-offset-2">
+        <%= form_for( :comment , url: recipe_comments_path, html: { multipart: true })  do |f| %>
+
+            <%= f.label :comment %>
+            <%= f.text_area :comment, rows: 10 %>
+            
+            <%= f.submit( @comment.new_record? ? 'Komentiraj' : 'Uredi komentar' , class: "btn btn-success" ) %>
+        <% end %>
+    </div>
+</div>
+

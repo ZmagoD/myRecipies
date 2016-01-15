@@ -1,0 +1,22 @@
+<% if @recipe.comments.any? %>
+    <div class="row">
+        
+        <h3>Komentarji:</h3>
+    <% @recipe.comments.each do |comment| %>
+    
+        <div class="row">
+            <div class="col-md-8 well">
+                <div class="col-md-2">
+                   <%= link_to gravatar_for( comment.chef, size: 64 ), chef_path( comment.chef ) %> 
+                   <h5><%= comment.chef.name %></h5>
+                   <p>Objavljen:<br/> <%= comment.created_at.strftime("%d %m %Y") %></p>
+                </div>
+                <div class="col-md-10">
+                    <p><%= comment.comment %></p>
+                </div>
+            </div>
+        </div>
+    
+    <% end %>
+    </div>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151216123609) do
+ActiveRecord::Schema.define(version: 20160114102056) do
 
   create_table "chefs", force: :cascade do |t|
     t.string   "name"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 20151216123609) do
     t.string   "password_digest"
     t.boolean  "admin",           default: false
   end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "chef_id"
+    t.integer  "recipe_id"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["chef_id"], name: "index_comments_on_chef_id"
+  add_index "comments", ["recipe_id"], name: "index_comments_on_recipe_id"
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
