@@ -1,12 +1,13 @@
 class ChefsController < ApplicationController
+    before_action :authenticate_chef!, only: [ :edit, :update ]
     before_action :set_chef, only: [ :edit, :update, :show ]
     before_action :require_same_user, only: [ :edit, :update ]
     def index
-        @chefs = Chef.paginate( page: params[:page], per_page: 3 )
+        @chefs = Chef.paginate( page: params[:page], per_page: 6 )
     end
     
     def show
-        @recipes = @chef.recipes.paginate( page: params[:page], per_page: 3)
+        @recipes = @chef.recipes.paginate( page: params[:page], per_page: 6 )
     end
     
     def new
@@ -46,7 +47,7 @@ class ChefsController < ApplicationController
         @chef = Chef.find_by_id(params[:id]) 
     end
     def require_same_user
-       if current_user != @chef
+       if current_chef != @chef
            flash[:danger] = "You can only edit your own profile"
            return_to root_path
        end

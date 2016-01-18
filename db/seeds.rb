@@ -6,28 +6,24 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# Chef.destroy_all
-# Recipe.destroy_all
-# 10.times{
-#     Chef.create!(
-#          name: Faker::Name.name ,
-#          email: Faker::Internet.email,
-#          password: "asdf1234"
-#          )
-# }
+Chef.destroy_all
+Recipe.destroy_all
+10.times{
+    Chef.create!(
+         name: Faker::Name.name ,
+         email: Faker::Internet.email,
+         password: "asdf1234",
+         password_confirmation: "asdf1234"
+         )
+}
 
-# Chef.create!(
-#      name: "admin" ,
-#      email: "admin@admin.com",
-#      password: "asdf1234",
-#      admin: true
-#      )
-# Chef.all.each do |c|
-#   3.times {Recipe.create!(
-#                   name: Faker::Commerce.product_name,
-#                   summary: Faker::Lorem.sentences(1),
-#                   description: Faker::Lorem.paragraph ,
-#                   picture: Faker::Avatar.image,
-#                   chef_id: c.id
-#                  )}
-# end
+
+Chef.all.each do |c|
+  3.times {Recipe.create!(
+                  name: Faker::Commerce.product_name,
+                  summary: Faker::Lorem.sentences(1),
+                  description: Faker::Lorem.paragraph ,
+                  picture: Faker::Avatar.image,
+                  chef_id: c.id
+                 )}
+end

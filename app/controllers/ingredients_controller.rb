@@ -1,5 +1,5 @@
 class IngredientsController < ApplicationController
-    before_action :require_user, except: [:show]
+    before_action :authenticate_chef!, except: [:show]
     def new
         @ingredient = Ingredient.new
     end

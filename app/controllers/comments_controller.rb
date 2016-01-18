@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-    before_action :set_recipe, only: [:create]
-    before_action :require_user_comment
+    before_action :authenticate_chef!
+    before_action :set_recipe, only: [:create ]
     
     def new
         @comment = Comment.new()
@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     def create
         @comment = Comment.new(comment_params)
         @comment.recipe =  @recipe
-        @comment.chef = current_user
+        @comment.chef = current_chef
         if @comment.save
             flash[:success] = "Uspešno ste dodali komentar"
             redirect_to @recipe
@@ -30,11 +30,5 @@ class CommentsController < ApplicationController
     def set_recipe
         @recipe = Recipe.find(params[:recipe_id])
     end
-    
-    def require_user_comment
-        if !logged_in?
-           flash[:danger] = "Preden dodate komentar se morate prijaviti"
-           redirect_to set_recipe
-        end
-    end
+
 end
