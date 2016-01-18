@@ -1,9 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-        <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %>
-        <a class="close" data-dismiss="alert">&#215;</a>
-        </div>
-        <% end %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert alert-alert"><%= alert %></p>
     </div>
 </div>
