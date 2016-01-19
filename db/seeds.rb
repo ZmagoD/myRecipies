@@ -9,15 +9,25 @@
 Chef.destroy_all
 Recipe.destroy_all
 10.times{
-    Chef.create!(
+    chef = Chef.new(
          name: Faker::Name.name ,
          email: Faker::Internet.email,
          password: "asdf1234",
          password_confirmation: "asdf1234"
          )
+    chef.skip_confirmation!
+    chef.save!
 }
 
-
+admin = Chef.new(
+     name: "admin" ,
+     email: "admin@admin.com",
+     password: "asdf1234",
+     password_confirmation: "asdf1234"
+     )
+admin.skip_confirmation!
+admin.save!
+     
 Chef.all.each do |c|
   3.times {Recipe.create!(
                   name: Faker::Commerce.product_name,
