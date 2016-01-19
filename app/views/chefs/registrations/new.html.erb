@@ -1,0 +1,29 @@
+<%= render "shared/page_title", title: "Ustvari račun" %>
+
+<div class="row">
+    <div class="well col-md-8 col-md-offset-2">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+    
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+                  
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+        
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+   
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  
+        <%= f.submit "Sign up", class:"btn btn-lg btn-success" %>
+   
+    <% end %>
+    
+    <%= render "chefs/shared/links" %>
+  </div>
+</div>
