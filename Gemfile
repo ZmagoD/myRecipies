@@ -40,10 +40,18 @@ group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
   gem 'pry'
-  gem 'faker'
   gem 'mailcatcher'
+  gem 'rspec-rails'
+  gem 'faker'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
+group :test do
+  gem 'capybara'
+  gem 'capybara-webkit'
+  
+end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
