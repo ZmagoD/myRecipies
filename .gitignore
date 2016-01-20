@@ -18,5 +18,6 @@
 /spring/*
 /spring
 /spring/
-config/initializers/devise.rb
+config/initializers/*
+
 .c9/
