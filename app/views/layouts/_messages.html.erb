@@ -1,6 +1,14 @@
 <div class="row">
     <div class="col-md-12">
-        <p class="notice"><%= notice %></p>
-        <p class="alert alert-alert"><%= alert %></p>
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>">
+            <a href="#" data-dismiss="alert" class="close">×</a>
+              <ul class="list-unstyled">
+                <li>
+                  <%= value %>
+                </li>
+              </ul>
+          </div>
+        <% end %>
     </div>
 </div>

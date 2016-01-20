@@ -1,7 +1,7 @@
-<p>Hello <%= @resource.email %>!</p>
+<p>Pozdravljeni <%= @resource.email %>!</p>
 
-<p>Your account has been locked due to an excessive number of unsuccessful sign in attempts.</p>
+<p>Vaš račun je bil zaklenjen zaradi prekoračitve neusprešnih prijav v aplikacijo.</p>
 
-<p>Click the link below to unlock your account:</p>
+<p>Kliknite na spodnjo povezavo da ponovno ustvarite račun:</p>
 
-<p><%= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token) %></p>
+<p><%= link_to 'Odkleni moj račun', unlock_url(@resource, unlock_token: @token) %></p>
