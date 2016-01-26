@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
     before_action :set_recipe, only: [ :edit, :update, :show, :like ]
-    before_action :authenticate_chef!, except: [ :show, :index, :like ] 
+    before_action :authenticate_chef!, except: [ :show, :index, :like, :search ] 
     before_action :require_user_like, only: [ :like ]
     before_action :require_same_user, only: [ :edit, :update ]
     
@@ -55,6 +55,10 @@ class RecipesController < ApplicationController
         Recipe.find(params[:id]).destroy
         flash[:success] = "Recipe deleted"
         redirect_to recipes_path
+    end
+    
+    def search
+        @recipes = Recipe.search_by_name(params[:search_recipe]).paginate( page: params[:page], per_page: 8 )
     end
     
     private

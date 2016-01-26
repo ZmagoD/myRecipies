@@ -169,4 +169,19 @@ span.picture{
     color: #468847;
     text-align: left;
  }
-    
+ 
+#search_recipe_form{
+    width: 320px;
+    margin-top: 20px;
+    input{
+        margin-bottom: 0px;
+        &[type="text"]{
+            float: left;
+        }
+        &[type="submit"]{
+            float: right;
+            max-width: 90px;
+            margin-left: 5px;
+        }
+    }
+}

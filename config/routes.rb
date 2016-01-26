@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     member do
       post 'like'
     end
+    collection do
+      post :search, to: "recipes#search"
+    end
     resources :comments
   end
   

@@ -22,6 +22,16 @@ class Recipe < ActiveRecord::Base
     def thumbs_down_total
         self.likes.where(like: false).size 
     end
+    
+    def self.search_by_name(name)
+        names_array = name.split(" ")
+        if names_array.size == 1
+            where('name LIKE ? or summary LIKE ?', "%#{names_array[0]}%", "%#{names_array[0]}%").order(:name)
+        else
+            where('name LIKE ? or summary LIKE ? or name LIKE ? or summary LIKE ?',
+            "%#{names_array[0]}%", "%#{names_array[1]}%", "%#{names_array[0]}%", "%#{names_array[1]}%").order(:name)
+        end
+    end
 
     private
         def picture_size

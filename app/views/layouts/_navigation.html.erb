@@ -48,6 +48,10 @@
             </ul>
           </li>
         </ul>
+        <%= form_tag( search_recipes_path, class: "navbar-form navbar-left", id: "search_recipe_form", role: "search") do %>
+            <%= text_field_tag :search_recipe, nil, placeholder: "Hobotnica iz pod peke...", class: "form-control" %>
+            <%= submit_tag "Išči recept", class: "btn btn-default" %>
+        <% end %>
         
         <% if chef_signed_in? %>
           <ul class="nav navbar-nav navbar-right">
